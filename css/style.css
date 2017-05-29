@@ -1,0 +1,60 @@
+html{
+    font-family: sans-serif;
+    background: #ddd;
+}
+.container-main{
+    height: 400px;
+    width: 700px;
+    background: #eee;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    position: relative;
+    border: 1px solid #ccc;
+
+}
+h1{
+    margin-left: auto;
+    margin-right: auto;
+}
+.tab{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background: #ccc;
+}
+.tab li{
+    float: left;
+    width: 50%;
+    margin: auto;
+    cursor: pointer;
+}
+.tab li a{
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    padding-left: 35%;
+}
+.tab li:hover{
+    background: #ddd;
+}
+.active{
+    background: #eee;
+}
+.tabcontent{
+    display: none;
+    border-top: none;
+}
+.container-login{
+    padding: 10%;
+    position: relative;
+}
+.container-signup{
+    padding: 10%;
+    position: relative;
+}

@@ -1,0 +1,38 @@
+.tab{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: #ddd;
+}
+.tabani{
+    transition: .2s;
+}
+.tabLi{
+    float: left;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    color: black;
+}
+.tabLi a{
+    display: inline-block;
+    padding: 10px 0;
+    padding-left: 10%;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: inherit;
+    margin-left: 32%;
+    text-transform: uppercase;
+}
+.tabLi:hover{
+    color: #838383;
+}
+#login{
+    clear: left;
+}
+.active{
+    background: #ccc;
+}
