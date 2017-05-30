@@ -52,3 +52,9 @@ h2{
     border-radius: 4px;
     color: white;
 }
+#msg{
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    margin: 10%;
+}
