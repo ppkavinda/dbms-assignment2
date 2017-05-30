@@ -35,11 +35,11 @@ if(isset($_POST["submit"])){
          <li class="navli" id="logout"><a href="logout.php">logout</a></li>
      </ul>
      <h1>DBMS System</h1>
-     <h1>Registeration page</h1>
+     <h1>Insert exams page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
              <ul class="tab tabani">
-                 <li class="tabLi" ><a style="margin-left: 17%;" id="default" class="tablink" >Register Student</a></li>
+                 <li class="tabLi" ><a style="margin-left: 17%;" id="default" class="tablink" >insert exams</a></li>
              </ul>
              <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                  <p style="color: red; margin-left: 5%;">
@@ -53,7 +53,7 @@ if(isset($_POST["submit"])){
                      <label for="sign-fname">Date:</label>
                      <input type="date" name="date" id="sign-date" placeholder="Enter the Date" required>
                  </p>
-                 <input id="submit" type="submit" name="submit"value="Register">
+                 <input id="submit" type="submit" name="submit"value="Insert">
              </form>
          </div>
      </div>

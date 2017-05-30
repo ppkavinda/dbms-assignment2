@@ -40,7 +40,7 @@ if(isset($_POST["submit"])){
          <li class="navli" id="logout"><a href="logout.php">logout</a></li>
      </ul>
      <h1>DBMS System</h1>
-     <h1>Registeration page</h1>
+     <h1>Insert Result page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
              <ul class="tab tabani">
@@ -78,7 +78,7 @@ if(isset($_POST["submit"])){
                      <label for="sign-result">Result:</label>
                      <input type="text" name="result" id="sign-result" placeholder="Enter the grade" required>
                  </p>
-                 <input id="submit" type="submit" name="submit"value="Sign up" onclick="return validatePassword()">
+                 <input id="submit" type="submit" name="submit"value="Insert" onclick="return validatePassword()">
              </form>
          </div>
      </div>

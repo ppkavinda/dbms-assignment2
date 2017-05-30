@@ -32,6 +32,7 @@ if (!isset($_SESSION["id"]) || !isset($_SESSION["level"])) {
          <a class="admin-link" href="while.php">Update module's lecturers</a>
          <a class="admin-link" href="search.php">Search Students</a>
          <a class="admin-link" href="search_staff.php">Search Staff</a>
+         <a class="admin-link" href="insert_module.php">Insert Module</a>
          <a class="admin-link" href="insert_results.php">Enter results</a>
          <a class="admin-link" href="insert_exams.php">Enter exam dates</a>
          <a class="admin-link" href="exams.php">Show exams</a>

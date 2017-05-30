@@ -43,11 +43,11 @@ if(isset($_POST["submit"])){
          <li class="navli" id="logout"><a href="logout.php">logout</a></li>
      </ul>
      <h1>DBMS System</h1>
-     <h1>Registeration page</h1>
+     <h1>Insert Module page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
              <ul class="tab tabani">
-                 <li class="tabLi" ><a style="margin-left: 17%;" id="default" class="tablink" >Enter results</a></li>
+                 <li class="tabLi" ><a style="margin-left: 17%;" id="default" class="tablink" >Insert Module</a></li>
              </ul>
              <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                  <p style="color: green; margin-left: 5%;">
