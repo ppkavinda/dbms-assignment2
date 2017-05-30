@@ -14,7 +14,9 @@ if(isset($_POST["submit"])){
             $result2 = mysqli_query($con, $sql2) or die(mysqli_error($con));
 
             if($result2){
-                $mag = "* registration successed !";
+                $_SESSION["msg"]=$sql1;
+                $_SESSION["msg2"]=$sql2;
+                header("Location: msg.php");
             }else{
                 echo mysqli_error($con);
             }
@@ -68,7 +70,7 @@ if(isset($_POST["prev"])){
                      <label for="sign-lec">lec:</label>
                      <input type="text" name="lec" id="sign-lec" placeholder="Lectures" <?php if(isset($val)){echo "value='$val'";} ?>>
                  </p>
-                 <input id="submit" type="submit" name="submit" value="Update" onclick="return validatePassword()">
+                 <input id="submit" type="submit" name="submit" value="Update">
                  <input style="margin-bottom: 15px;" type="submit" name="prev" value="Show previous lectures">
              </form>
          </div>

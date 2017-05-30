@@ -17,7 +17,8 @@ session_start();
 <body>
     <a href="index.php"><h1>SQL query</h1></a>
     <div id="msg">
-        <?php echo $_SESSION["msg"]; ?>
+        <?php echo $_SESSION["msg"] . "<br><br>"; ?>
+        <?php if(isset($_SESSION["msg2"])){echo $_SESSION["msg2"];} ?>
     </div>
     </body>
 </html>
