@@ -1,7 +1,7 @@
 <?php
 include_once("config.php");
 
-$sql = "SELECT date, title, exmas.mcode FROM exmas INNER JOIN module ON exmas.mcode=module.mcode;";
+$sql = "SELECT * FROM all_exams";
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows($result)>0){

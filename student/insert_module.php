@@ -16,7 +16,8 @@ if(isset($_POST["submit"])){
     $result2 = mysqli_query($con, $sql2) or die(mysqli_error($con));
 
     if(/* $result1 && */ $result2){
-        $msg = "* registration successed !";
+        $_SESSION["msg"] = $sql2;
+        header("Location: msg.php");
     }else{
         $msg = "* insertion failed !";
         // echo mysqli_error($con);
@@ -28,21 +29,13 @@ if(isset($_POST["submit"])){
  <head>
      <meta charset="utf-8">
      <title>DBMS- database system</title>
-     <link rel="stylesheet" href="css/form.css?modified=023209">
-     <link rel="stylesheet" href="css/test.css?modified=0211009">
-     <link rel="stylesheet" href="css/tab.css?modified=0202309">
-     <link rel="stylesheet" href="css/navbar.css?modified=032209">
+     <link rel="stylesheet" href="../css/form.css?modified=023209">
+     <link rel="stylesheet" href="../css/test.css?modified=0211009">
+     <link rel="stylesheet" href="../css/tab.css?modified=0202309">
+     <link rel="stylesheet" href="../css/navbar.css?modified=032209">
  </head>
  <body>
-     <ul class="navbar">
-         <li class="navli activenav" onclick="active(this);"><a href="#">home</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp1</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp2</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp3</a></li>
-         <li class="space" onclick="active(this);"><a href="#">space</a></li>
-         <li class="navli" id="logout"><a href="logout.php">logout</a></li>
-     </ul>
-     <h1>DBMS System</h1>
+     <a href="index.php"><h1>DBMS System</h1></a>
      <h1>Insert Module page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
@@ -117,11 +110,9 @@ if(isset($_POST["submit"])){
                      <label for="sign-sem">Semester:</label>
                      <input type="text" name="sem" id="sign-sem" placeholder="Enter the Semester" required>
                  </p>
-                 <input id="submit" type="submit" name="submit"value="Insert module" onclick="return validatePassword()">
+                 <input id="submit" type="submit" name="submit"value="Insert module">
              </form>
          </div>
      </div>
-     <script src="js/validation.js"></script>
-     <script src="js/navbar.js"></script>
      </body>
  </html>

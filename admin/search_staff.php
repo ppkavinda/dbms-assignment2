@@ -6,7 +6,7 @@
             $search = $_POST["search"];
             $sql = "SELECT DISTINCT * FROM staff WHERE fname LIKE '%$search%' OR lname LIKE '%$search%';";
         }else if(isset($_GET["all"])){
-            $sql = "SELECT * FROM staff";
+            $sql = "SELECT * FROM all_staff";
         }
         $result = mysqli_query($con, $sql);
 

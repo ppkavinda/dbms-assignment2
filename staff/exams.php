@@ -23,9 +23,9 @@ if(mysqli_num_rows($result)>0){
     <head>
         <meta charset="utf-8">
         <title>Search for students</title>
-        <link rel="stylesheet" href="css/form.css?modified=205209">
-        <link rel="stylesheet" href="css/test.css?modified=20009">
-        <link rel="stylesheet" href="css/tab.css?modified=200209">
+        <link rel="stylesheet" href="../css/form.css?modified=205209">
+        <link rel="stylesheet" href="../css/test.css?modified=200039">
+        <link rel="stylesheet" href="../css/tab.css?modified=200209">
         <style>
             table, th, td{border: 3px solid #ddd; border-collapse: collapse; padding: 10px;}
             table{width: 100%;}
@@ -35,14 +35,14 @@ if(mysqli_num_rows($result)>0){
         </style>
     </head>
     <body>
-        <h1>DBMS System</h1>
+        <a href="index.php"><h1>DBMS System</h1></a>
 
         <div class="container">
             <?php if(isset($str)){echo $str;} ?>
             <?php if(isset($err)){echo $err;} ?>
         </div>
-
-    <script src="js/tab.js"></script>
-    <script src="js/validation.js"></script>
+        <div id="msg">
+            <?php echo $sql ?>
+        </div>
     </body>
 </html>

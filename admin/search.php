@@ -6,7 +6,7 @@
             $search = $_POST["search"];
             $sql = "SELECT * FROM students INNER JOIN diploma ON students.d_id=diploma.d_id WHERE fname LIKE '%$search%' OR lname LIKE '%$search%'";
         }else if(isset($_GET["all"])){
-            $sql = "SELECT * FROM students INNER JOIN diploma ON students.d_id=diploma.d_id";
+            $sql = "SELECT * FROM all_students";
         }
         $result = mysqli_query($con, $sql);
 

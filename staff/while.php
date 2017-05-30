@@ -14,7 +14,9 @@ if(isset($_POST["submit"])){
             $result2 = mysqli_query($con, $sql2) or die(mysqli_error($con));
 
             if($result2){
-                $mag = "* registration successed !";
+                $_SESSION["msg"]=$sql1;
+                $_SESSION["msg2"]=$sql2;
+                header("Location: msg.php");
             }else{
                 echo mysqli_error($con);
             }
@@ -43,22 +45,14 @@ if(isset($_POST["prev"])){
  <head>
      <meta charset="utf-8">
      <title>DBMS- database system</title>
-     <link rel="stylesheet" href="css/form.css?modified=02209">
-     <link rel="stylesheet" href="css/test.css?modified=0211009">
-     <link rel="stylesheet" href="css/tab.css?modified=0202309">
-     <link rel="stylesheet" href="css/navbar.css?modified=032209">
+     <link rel="stylesheet" href="../css/form.css?modified=02209">
+     <link rel="stylesheet" href="../css/test.css?modified=02r11009">
+     <link rel="stylesheet" href="../css/tab.css?modified=0202309">
+     <link rel="stylesheet" href="../css/navbar.css?modified=032209">
  </head>
  <body>
-     <ul class="navbar">
-         <li class="navli activenav" onclick="active(this);"><a href="#">home</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp1</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp2</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp3</a></li>
-         <li class="space" onclick="active(this);"><a href="#">space</a></li>
-         <li class="navli" id="logout"><a href="logout.php">logout</a></li>
-     </ul>
-     <h1>DBMS System</h1>
-     <h1>Registeration page</h1>
+     <a href="index.php"><h1>DBMS System</h1></a>
+     <h1>Update page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
              <ul class="tab tabani">
@@ -76,12 +70,15 @@ if(isset($_POST["prev"])){
                      <label for="sign-lec">lec:</label>
                      <input type="text" name="lec" id="sign-lec" placeholder="Lectures" <?php if(isset($val)){echo "value='$val'";} ?>>
                  </p>
-                 <input id="submit" type="submit" name="submit" value="Update" onclick="return validatePassword()">
+                 <input id="submit" type="submit" name="submit" value="Update">
                  <input style="margin-bottom: 15px;" type="submit" name="prev" value="Show previous lectures">
              </form>
          </div>
      </div>
-     <script src="js/validation.js"></script>
-     <script src="js/navbar.js"></script>
+         <div id="msg">
+             <?php if (isset($sql)) {
+                 echo $sql;
+             } ?>
+         </div>
      </body>
  </html>

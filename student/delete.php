@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("config.php");
 if(isset($_GET['s_id'])){
     $s_id = $_GET['s_id'];
@@ -18,7 +19,8 @@ if(isset($_GET['s_id'])){
 
 $result = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($result){
-    echo "Deleted Successfully!";
+    $_SESSION["msg"]=$sql;
+    header("Location: msg.php");
 }else{
-    echo "Error";
+    mysqli_error($con);
 }

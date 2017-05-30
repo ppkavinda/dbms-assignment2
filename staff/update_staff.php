@@ -24,8 +24,8 @@ if(isset($_POST["submit"])){
     $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
 
     if($result1){
-        $msg = "* registration successed !";
-        header("Location:admin.php");
+        $_SESSION["msg"]=$sql1;
+        header("Location: msg.php");
     }else{
         $msg = "* Falied! ";
     }
@@ -36,21 +36,13 @@ if(isset($_POST["submit"])){
  <head>
      <meta charset="utf-8">
      <title>DBMS- database system</title>
-     <link rel="stylesheet" href="css/form.css?modified=02209">
-     <link rel="stylesheet" href="css/test.css?modified=0211009">
-     <link rel="stylesheet" href="css/tab.css?modified=0202309">
-     <link rel="stylesheet" href="css/navbar.css?modified=032209">
+     <link rel="stylesheet" href="../css/form.css?modified=02209">
+     <link rel="stylesheet" href="../css/test.css?modified=0211009">
+     <link rel="stylesheet" href="../css/tab.css?modified=0202309">
+     <link rel="stylesheet" href="../css/navbar.css?modified=032209">
  </head>
  <body>
-     <ul class="navbar">
-         <li class="navli activenav" onclick="active(this);"><a href="#">home</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp1</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp2</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp3</a></li>
-         <li class="space" onclick="active(this);"><a href="#">space</a></li>
-         <li class="navli" id="logout"><a href="logout.php">logout</a></li>
-     </ul>
-     <h1>DBMS System</h1>
+     <a href="index.php"><h1>DBMS System</h1></a>
      <h1>Registeration page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
@@ -81,7 +73,5 @@ if(isset($_POST["submit"])){
              </form>
          </div>
      </div>
-     <script src="js/validation.js"></script>
-     <script src="js/navbar.js"></script>
      </body>
  </html>

@@ -6,7 +6,7 @@
             $search = $_POST["search"];
             $sql = "SELECT * FROM students INNER JOIN diploma ON students.d_id=diploma.d_id WHERE fname LIKE '%$search%' OR lname LIKE '%$search%'";
         }else if(isset($_GET["all"])){
-            $sql = "SELECT * FROM students INNER JOIN diploma ON students.d_id=diploma.d_id";
+            $sql = "SELECT * FROM all_students";
         }
         $result = mysqli_query($con, $sql);
 
@@ -30,9 +30,9 @@
     <head>
         <meta charset="utf-8">
         <title>Search for students</title>
-        <link rel="stylesheet" href="css/form.css?modified=205209">
-        <link rel="stylesheet" href="css/test.css?modified=20009">
-        <link rel="stylesheet" href="css/tab.css?modified=200209">
+        <link rel="stylesheet" href="../css/form.css?modified=205209">
+        <link rel="stylesheet" href="../css/test.css?modified=203009">
+        <link rel="stylesheet" href="../css/tab.css?modified=200209">
         <style>
             table, th, td{border: 3px solid #ddd; border-collapse: collapse; padding: 10px;}
             table{width: 100%;}
@@ -42,7 +42,7 @@
         </style>
     </head>
     <body>
-        <h1>DBMS System</h1>
+        <a href="index.php"><h1>DBMS System</h1></a>
         <div class="container-main">
             <ul class="tab">
                 <li class="tabLi" onclick='selTab(event, "login");'><a href="javascript:void(0)" id="default" class="tablink" >Search</a></li>
@@ -65,8 +65,10 @@
             <?php if(isset($str)){echo $str;} ?>
             <?php if(isset($err)){echo $err;} ?>
         </div>
-
-    <script src="js/tab.js"></script>
-    <script src="js/validation.js"></script>
+        <div id="msg">
+            <?php if (isset($sql)) {
+                echo $sql;
+            } ?>
+        </div>
     </body>
 </html>

@@ -4,7 +4,7 @@ if(isset($_POST["submit"])){
     $s_id = $_POST["id"];
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
-    $department = $_POST["department"];
+    $department = $_POST["dep_id"];
     $password = md5($_POST["password"]);
     $mcode = trim($_POST["mcode"]);
     $r = explode(" ", $mcode);
@@ -26,7 +26,8 @@ if(isset($_POST["submit"])){
         $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
 
         if($result1){
-            $mag = "* registration successed !";
+            $_SESSION["msg"]=$sql1;
+            header("Location: msg.php");
         }else{
             echo mysqli_error($con);
         }
@@ -38,21 +39,13 @@ if(isset($_POST["submit"])){
  <head>
      <meta charset="utf-8">
      <title>DBMS- database system</title>
-     <link rel="stylesheet" href="css/form.css?modified=02209">
-     <link rel="stylesheet" href="css/test.css?modified=0211009">
-     <link rel="stylesheet" href="css/tab.css?modified=0202309">
-     <link rel="stylesheet" href="css/navbar.css?modified=032209">
+     <link rel="stylesheet" href="../css/form.css?modified=02209">
+     <link rel="stylesheet" href="../css/test.css?modified=0211009">
+     <link rel="stylesheet" href="../css/tab.css?modified=0202309">
+     <link rel="stylesheet" href="../css/navbar.css?modified=032209">
  </head>
  <body>
-     <ul class="navbar">
-         <li class="navli activenav" onclick="active(this);"><a href="#">home</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp1</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp2</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp3</a></li>
-         <li class="space" onclick="active(this);"><a href="#">space</a></li>
-         <li class="navli" id="logout"><a href="logout.php">logout</a></li>
-     </ul>
-     <h1>DBMS System</h1>
+     <a href="index.php"><h1>DBMS System</h1></a>
      <h1>Registeration page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
@@ -75,9 +68,21 @@ if(isset($_POST["submit"])){
                      <label for="sign-lname">Last Name:</label>
                      <input type="text" name="lname" id="sign-lname" placeholder="Enter Last name" required>
                  </p>
+                 <?php
+                 $sql = "SELECT dep_id FROM department;";
+                 include_once("config.php");
+                 $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+                 $str ='';
+                 while($row=mysqli_fetch_array($result)){
+                     $str .="<option value='$row[dep_id]'>$row[dep_id]</option>";
+                 }
+                 ?>
                  <p>
-                     <label for="sign-department">Department id:</label>
-                     <input type="text" name="department" id="sign-department" placeholder="Department Id" required>
+                     <label for="sign-mcode">Department id:</label>
+                     <select class="input" name="dep_id">
+                         <option value="M1">-- Select the Department Id</>
+                             <?php echo $str ?>
+                     </select>
                  </p>
                  <p>
                      <label for="sign-id">mcode:</label>
@@ -91,11 +96,9 @@ if(isset($_POST["submit"])){
                      <label for="sign-password">Re-enter password:</label>
                      <input type="password" name="password" id="sign-re-password" placeholder="Re-enter password" required>
                  </p>
-                 <input id="submit" type="submit" name="submit"value="Register" onclick="return validatePassword()">
+                 <input id="submit" type="submit" name="submit"value="Register">
              </form>
          </div>
      </div>
-     <script src="js/validation.js"></script>
-     <script src="js/navbar.js"></script>
      </body>
  </html>

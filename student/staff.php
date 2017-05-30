@@ -1,11 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION["id"]) || !isset($_SESSION["level"])) {
-    header("Location: index.php");
-    $link = "hide";
-}else{
-    $link = "";
-}
 
 if(isset($_GET["l_id"])){
     include_once("config.php");
@@ -48,10 +42,10 @@ if(isset($_GET["l_id"])){
 <head>
     <meta charset="utf-8">
     <title>DBMS- database system</title>
-    <link rel="stylesheet" href="css/form.css?modified=205209">
-    <link rel="stylesheet" href="css/test.css?modified=20094">
-    <link rel="stylesheet" href="css/tab.css?modified=200209">
-    <link rel="stylesheet" href="css/navbar.css?modified=20209">
+    <link rel="stylesheet" href="../css/form.css?modified=205209">
+    <link rel="stylesheet" href="../css/test.css?modified=20094">
+    <link rel="stylesheet" href="../css/tab.css?modified=200209">
+    <link rel="stylesheet" href="../css/navbar.css?modified=20209">
     <style>
         table, th, td{border: 3px solid #ddd; border-collapse: collapse; padding: 10px;}
         table{width: 100%;}
@@ -61,15 +55,7 @@ if(isset($_GET["l_id"])){
     </style>
 </head>
 <body>
-    <ul class="navbar">
-        <li class="navli activenav" onclick="active(this);"><a href="#">home</a></li>
-        <li class="navli" onclick="active(this);"><a href="#">tmp1</a></li>
-        <li class="navli" onclick="active(this);"><a href="#">tmp2</a></li>
-        <li class="navli" onclick="active(this);"><a href="#">tmp3</a></li>
-        <li class="space" onclick="active(this);"><a href="#">space</a></li>
-        <li class="navli" id="logout"><a href="logout.php" class="<?php echo $link ?>">Log out</a></li>
-    </ul>
-    <h1>DBMS System</h1>
+    <a href="index.php"><h1>DBMS System</h1></a>
         <h1>Student page</h1>
         <div class="container-main2">
             <h2>Staff details</h2>
@@ -77,34 +63,6 @@ if(isset($_GET["l_id"])){
                 <?php if(isset($str3)){echo $str3; } ?>
             </ul>
         </div>
-        <!-- <div class="container-main2">
-            <h2>Exam Results</h2>
-            <table>
-                <tr>
-                    <th>date</th><th>module</th><th>grade</th>
-                </tr>
-                    <?php if(isset($str)){echo $str; } ?>
-            </table>
-        </div> -->
-        <div class="container-main2">
-            <h2>Modules you Teach</h2>
-            <ul>
-                <?php echo $str2 ?>
-            </ul>
-        </div>
-        <div class="container-main admin">
-            <a class="admin-link" href="insert_module.php">Registere Module</a>
-            <a class="admin-link" href="register_student.php">Registere Students</a>
-            <a class="admin-link" href="register_lecture.php">Registere Lecture</a>
-            <a class="admin-link" href="while.php">Update module's lecturers</a>
-            <a class="admin-link" href="search.php">Search Students</a>
-            <a class="admin-link" href="insert_module.php">Insert Module</a>
-            <a class="admin-link" href="search_staff.php">Search Staff</a>
-            <a class="admin-link" href="insert_results.php">Enter results</a>
-            <a class="admin-link" href="insert_exams.php">Enter exam dates</a>
-            <a class="admin-link" href="exams.php">Show exams</a>
-            <a class="admin-link" href="modules.php">Show modules</a>
-        </div>
-        <script src="js/navbar.js"></script>
+        
     </body>
 </html>

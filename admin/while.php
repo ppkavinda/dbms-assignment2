@@ -64,7 +64,7 @@ if(isset($_POST["prev"])){
                  </p>
                  <p>
                      <label for="sign-id">mcode:</label>
-                     <input type="text" name="mcode" id="sign-id" placeholder="Module code" <?php if(isset($val)){echo "value='$val2'";} ?> required>
+                     <input type="text" name="mcode" id="sign-id" placeholder="Module code" <?php if(isset($mcode)){echo "value='$mcode'";} ?> required>
                  </p>
                  <p>
                      <label for="sign-lec">lec:</label>

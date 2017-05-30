@@ -19,17 +19,14 @@ if(isset($_POST["submit"])){
     $sem = $_POST["sem"];
 
     include_once("config.php");
-    // $sql1 = "INSERT INTO exmas(mcode, date) VALUES ('$mcode', '$date');";
     $sql2 = "UPDATE module SET mcode='$mcode', cr_level='$cr_level', coordinator_id='$l_id', d_id='$d_id', dep_id='$dep_id', semester='$sem' WHERE mcode='$mcode';";
-    // $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
     $result2 = mysqli_query($con, $sql2) or die(mysqli_error($con));
 
-    if(/* $result1 && */ $result2){
-        // echo '<script>alert("UPDATE module SET mcode=' . $mcode . ', cr_level=' . $cr_level. ', coordinator_id='.$l_id.', d_id='.$d_id.', dep_id='.$dep_id.', semester='.$sem.' WHERE mcode='.$mcode.'");</script>';
-        echo '<script>alert("'.$sql2.'")</script>';
+    if($result2){
+        $_SESSION["msg"]=$sql2;
+        header("Location: msg.php");
     }else{
-        $msg = "* insertion failed !";
-        // echo mysqli_error($con);
+        echo mysqli_error($con);
     }
 }
  ?>
@@ -38,21 +35,13 @@ if(isset($_POST["submit"])){
  <head>
      <meta charset="utf-8">
      <title>DBMS- database system</title>
-     <link rel="stylesheet" href="css/form.css?modified=023209">
-     <link rel="stylesheet" href="css/test.css?modified=0211009">
-     <link rel="stylesheet" href="css/tab.css?modified=0202309">
-     <link rel="stylesheet" href="css/navbar.css?modified=032209">
+     <link rel="stylesheet" href="../css/form.css?modified=023209">
+     <link rel="stylesheet" href="../css/test.css?modified=0211009">
+     <link rel="stylesheet" href="../css/tab.css?modified=0202309">
+     <link rel="stylesheet" href="../css/navbar.css?modified=032209">
  </head>
  <body>
-     <ul class="navbar">
-         <li class="navli activenav" onclick="active(this);"><a href="#">home</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp1</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp2</a></li>
-         <li class="navli" onclick="active(this);"><a href="#">tmp3</a></li>
-         <li class="space" onclick="active(this);"><a href="#">space</a></li>
-         <li class="navli" id="logout"><a href="logout.php">logout</a></li>
-     </ul>
-     <h1>DBMS System</h1>
+     <a href="index.php"><h1>DBMS System</h1></a>
      <h1>Registeration page</h1>
      <div class="container-main">
          <div id="signup" class="tabcontent">
@@ -131,7 +120,5 @@ if(isset($_POST["submit"])){
              </form>
          </div>
      </div>
-     <script src="js/validation.js"></script>
-     <script src="js/navbar.js"></script>
      </body>
  </html>
