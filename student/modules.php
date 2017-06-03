@@ -8,7 +8,7 @@ session_start();
 // }
 
 include_once("config.php");
-$sql1 = "SELECT mcode, title, cr_level, coordinator_id, name FROM module INNER JOIN department ON module.dep_id=department.dep_id";
+$sql1 = "SELECT * FROM `all_modules`";
 $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
 
 if(mysqli_num_rows($result1)>0){
