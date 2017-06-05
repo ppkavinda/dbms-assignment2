@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 03, 2017 at 09:17 AM
+-- Generation Time: Jun 05, 2017 at 09:26 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -163,11 +163,12 @@ CREATE TABLE `exmas` (
 --
 
 INSERT INTO `exmas` (`date`, `mcode`) VALUES
+('2017-05-05', 'M1'),
 ('2017-05-10', 'M1'),
 ('2017-05-17', 'M1'),
 ('2017-05-25', 'M1'),
 ('2017-05-26', 'M1'),
-('2017-05-01', 'M2'),
+('2017-06-09', 'M12'),
 ('2017-05-05', 'M2'),
 ('2017-05-16', 'M2'),
 ('2017-05-04', 'M3'),
@@ -197,16 +198,16 @@ CREATE TABLE `module` (
 INSERT INTO `module` (`mcode`, `title`, `cr_level`, `coordinator_id`, `d_id`, `dep_id`, `semester`) VALUES
 ('M1', 'dsa 1', 2, 'L1', 'D5', 'DEP3', 1),
 ('M12', 'machine learn', 2, 'L1', 'D5', 'DEP3', 2),
-('M13', 'x-ray', 3, '', 'D8', 'DEP4', 1),
-('M14', 'quontom mechenic', 3, '', 'D9', 'DEP2', 1),
-('M15', 'magnetic feidls', 3, '', 'D4', 'DEP2', 1),
+('M13', 'x-ray', 3, 'L1', 'D8', 'DEP4', 1),
+('M14', 'quontom mechenic', 3, 'L2', 'D9', 'DEP2', 1),
+('M15', 'magnetic feidls', 3, 'L1', 'D4', 'DEP2', 1),
 ('M2', 'programming 1', 2, 'L1', 'D3', 'DEP2', 1),
-('M3', 'math 1', 5, '', 'D1', 'DEP3', 1),
+('M3', 'math 1', 5, 'L1', 'D1', 'DEP3', 1),
 ('M4', 'prog & problem 1', 4, 'L1', 'D5', 'DEP2', 1),
-('M5', 'computer system', 4, 'L3', 'D7', 'DEP3', 1),
-('M6', 'orgenic', 3, '', 'D3', 'DEP4', 2),
-('M8', 'atom 2', 3, '', 'D3', 'DEP4', 2),
-('M9', 'electronic 2', 3, '', 'D4', 'DEP2', 2);
+('M5', 'computer system', 4, 'L2', 'D7', 'DEP3', 1),
+('M6', 'orgenic', 3, 'L1', 'D3', 'DEP4', 2),
+('M8', 'atom 2', 3, 'L1', 'D3', 'DEP4', 2),
+('M9', 'electronic 2', 3, 'L2', 'D4', 'DEP2', 2);
 
 -- --------------------------------------------------------
 
@@ -226,11 +227,11 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`l_id`, `fname`, `lname`, `dep_id`) VALUES
-('L1', 'noel', 'pranando', 'DEP1'),
-('L2', 'kasun', 'jayawardhana', 'DEP2'),
-('L3', 'ruwan', 'weerasinghe', 'DEP1'),
-('L4', 'test', 'test', 'DEP3'),
-('L5', 'test', 'test', 'DEP3');
+('L1', 'kamal', 'sampath', 'DEP1'),
+('L2', 'sampath', 'jayawardhana', 'DEP2'),
+('L3', 'amal', 'kumara', 'DEP1'),
+('L4', 'amara', 'kumara', 'DEP3'),
+('L5', 'saman', 'kumara', 'DEP4');
 
 -- --------------------------------------------------------
 
@@ -248,9 +249,15 @@ CREATE TABLE `staff_module` (
 --
 
 INSERT INTO `staff_module` (`mcode`, `l_id`) VALUES
+('M8', 'L1'),
 ('M1', 'L2'),
 ('M2', 'L2'),
-('M2', 'L4');
+('M5', 'L2'),
+('M6', 'L2'),
+('M8', 'L2'),
+('M2', 'L4'),
+('M4', 'L5'),
+('M8', 'L5');
 
 -- --------------------------------------------------------
 
@@ -276,8 +283,7 @@ INSERT INTO `students` (`s_id`, `fname`, `lname`, `address1`, `address2`, `d_id`
 ('S2', 'shehan', 'chamika', 'kaduwela road battaramulla', 'colombo', 'D2'),
 ('S3', 'thusitha', 'salinda', 'rahula road', 'kandy', 'D3'),
 ('S4', 'thusitha', 'salinda', 'rahula road', 'kandy', 'D3'),
-('S5', 'danushka', 'herath', 'alawwa', 'kurunagala', 'D4'),
-('S6', 'test', 'test', 'test', 'test', 'D9');
+('S5', 'danushka', 'herath', 'alawwa', 'kurunagala', 'D4');
 
 -- --------------------------------------------------------
 
@@ -297,7 +303,6 @@ CREATE TABLE `student_exam` (
 --
 
 INSERT INTO `student_exam` (`date`, `mcode`, `s_id`, `grade`) VALUES
-('2017-05-01', 'M2', 'S1', 'B'),
 ('2017-05-09', 'M4', 'S1', 'D-'),
 ('2017-05-17', 'M1', 'S1', 'C+'),
 ('2017-05-26', 'M1', 'S1', 'A+');
@@ -376,7 +381,8 @@ ALTER TABLE `exmas`
 ALTER TABLE `module`
   ADD PRIMARY KEY (`mcode`),
   ADD KEY `module_ibfk_2` (`d_id`),
-  ADD KEY `diploma_module_ibfk_3` (`dep_id`);
+  ADD KEY `diploma_module_ibfk_3` (`dep_id`),
+  ADD KEY `module_ibfk_3` (`coordinator_id`);
 
 --
 -- Indexes for table `staff`
@@ -434,6 +440,7 @@ ALTER TABLE `exmas`
 -- Constraints for table `module`
 --
 ALTER TABLE `module`
+  ADD CONSTRAINT `module_ibfk_3` FOREIGN KEY (`coordinator_id`) REFERENCES `staff` (`l_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `diploma_module_ibfk_3` FOREIGN KEY (`dep_id`) REFERENCES `department` (`dep_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `module_ibfk_2` FOREIGN KEY (`d_id`) REFERENCES `diploma` (`d_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
