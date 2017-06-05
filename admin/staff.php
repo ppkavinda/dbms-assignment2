@@ -63,6 +63,9 @@ if(isset($_GET["l_id"])){
                 <?php if(isset($str3)){echo $str3; } ?>
             </ul>
         </div>
-        
+        <div id="msg">
+            <?php echo $sql3 ?>
+        </div>
+
     </body>
 </html>

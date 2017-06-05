@@ -79,14 +79,6 @@ if(isset($_POST["submit"])){
                              <?php echo $str ?>
                      </select>
                  </p>
-                 <p>
-                     <label for="sign-password">Password:</label>
-                     <input type="password" name="password" id="sign-password" placeholder="Create a Password" required>
-                 </p>
-                 <p>
-                     <label for="sign-password">Re-enter password:</label>
-                     <input type="password" name="password" id="sign-re-password" placeholder="Re-enter password" required>
-                 </p>
                  <input id="submit" type="submit" name="submit"value="Register">
              </form>
          </div>
