@@ -5,17 +5,14 @@ if(isset($_POST["submit"])){
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $department = $_POST["dep_id"];
-    $password = md5($_POST["password"]);
     $mcode = trim($_POST["mcode"]);
     $r = explode(" ", $mcode);
 
     include_once("config.php");
     $sql1 = "INSERT INTO staff(l_id, fname, lname, dep_id) VALUES ('$s_id', '$fname', '$lname', '$department');";
-    $sql2 = " INSERT INTO users(id, password, ulevel) VALUES ('$s_id', '$password', 1);";
     $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
-    $result2 = mysqli_query($con, $sql2) or die(mysqli_error($con));
 
-    if($result1 && $result2){
+    if($result1){
         $msg = "* registration successed !";
     }else{
         $msg = "* Falied! ";
@@ -87,14 +84,6 @@ if(isset($_POST["submit"])){
                  <p>
                      <label for="sign-id">mcode:</label>
                      <input type="text" name="mcode" id="sign-id" placeholder="Module codes (seperate by a space)" required>
-                 </p>
-                 <p>
-                     <label for="sign-password">Password:</label>
-                     <input type="password" name="password" id="sign-password" placeholder="Create a Password" required>
-                 </p>
-                 <p>
-                     <label for="sign-password">Re-enter password:</label>
-                     <input type="password" name="password" id="sign-re-password" placeholder="Re-enter password" required>
                  </p>
                  <input id="submit" type="submit" name="submit"value="Register">
              </form>

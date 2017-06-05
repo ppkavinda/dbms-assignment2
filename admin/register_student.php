@@ -7,7 +7,6 @@ if(isset($_POST["submit"])){
     $address1 = $_POST["address1"];
     $address2 = $_POST["address2"];
     $d_id = $_POST["d_id"];
-    $password = md5($_POST["password"]);
 
     include_once("config.php");
     $sql1 = "INSERT INTO students(s_id, fname, lname, address1, address2, d_id) VALUES ('$s_id', '$fname', '$lname', '$address1', '$address2', '$d_id');";

@@ -5,17 +5,15 @@ if(isset($_POST["submit"])){
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $department = $_POST["dep_id"];
-    $password = md5($_POST["password"]);
     $mcode = trim($_POST["mcode"]);
     $r = explode(" ", $mcode);
 
     include_once("config.php");
     $sql1 = "INSERT INTO staff(l_id, fname, lname, dep_id) VALUES ('$s_id', '$fname', '$lname', '$department');";
-    $sql2 = " INSERT INTO users(id, password, ulevel) VALUES ('$s_id', '$password', 1);";
-    $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
-    $result2 = mysqli_query($con, $sql2) or die(mysqli_error($con));
 
-    if($result1 && $result2){
+    $result1 = mysqli_query($con, $sql1) or die(mysqli_error($con));
+
+    if($result1){
         $msg = "* registration successed !";
     }else{
         $msg = "* Falied! ";

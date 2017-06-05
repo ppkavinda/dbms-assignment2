@@ -7,7 +7,6 @@ if(isset($_POST["submit"])){
     $address1 = $_POST["address1"];
     $address2 = $_POST["address2"];
     $d_id = $_POST["d_id"];
-    $password = md5($_POST["password"]);
 
     include_once("config.php");
     $sql1 = "INSERT INTO students(s_id, fname, lname, address1, address2, d_id) VALUES ('$s_id', '$fname', '$lname', '$address1', '$address2', '$d_id');";
@@ -78,14 +77,6 @@ if(isset($_POST["submit"])){
                          <option value="M1">-- Select the Diploma Id</option>
                              <?php echo $str ?>
                      </select>
-                 </p>
-                 <p>
-                     <label for="sign-password">Password:</label>
-                     <input type="password" name="password" id="sign-password" placeholder="Create a Password" required>
-                 </p>
-                 <p>
-                     <label for="sign-password">Re-enter password:</label>
-                     <input type="password" name="password" id="sign-re-password" placeholder="Re-enter password" required>
                  </p>
                  <input id="submit" type="submit" name="submit"value="Register">
              </form>
