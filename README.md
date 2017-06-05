@@ -18,25 +18,15 @@ sql injection ->-> x'; DROP TABLE members; --
 department      all     s       s
 diploma         all     s       s
 diploma_module  all     s       s
-exams           all     s/i/u   s
+exmas           all     s/i/u   s
 module          all     s       s
 Staff           all     s       s
 staff_module    all     s       s
 Students        all     s       s
-student_exams   all     s/i/u   s
+student_exam    all     s/i/u   s
 
+grant select on assignment_test3.* to staff@localhost;
+grant inesrt, update, delete on assignment_test3.exams to staff@localhost;
+grant inesrt, update, delete on assignment_test3.student_exams to staff@localhost;
 
-
-
-
-
-
-
-
-
-
-
-
-
-edit page titles.
-fill missed fields in database tables
+grant select on assignment_test3.* to student@localhost;

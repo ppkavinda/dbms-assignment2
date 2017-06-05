@@ -10,7 +10,7 @@
  </head>
  <body>
      <a href="index.php"><h1>DBMS System</h1></a>
-     <h1>Admin page</h1>
+     <h1>Staff page</h1>
      <div class="container-main admin">
          <h2 style="color:black; text-align:center;">insert</h2>
          <a class="admin-link" href="register_student.php">Registere Students</a>

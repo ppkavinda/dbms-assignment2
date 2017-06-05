@@ -55,7 +55,7 @@ if(isset($_POST["submit"])){
                  </p>
                  <p>
                      <label for="sign-id">Id:</label>
-                     <input type="text" name="id" id="sign-id" placeholder="Enter ID" value="<?php echo $row['l_id']?>" required>
+                     <input type="text" name="l_id" id="sign-id" placeholder="Enter ID" value="<?php echo $row['l_id']?>" required>
                  </p>
                  <p>
                      <label for="sign-fname">First Name:</label>
